@@ -65,7 +65,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
-  Category.post({
+  Category.create({
     category_name: req.body.category_name,
   })
     .then(dbCategoryData => res.json(dbCategoryData))
@@ -101,7 +101,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   Category.destroy({
      where: { 
-       id:req.params.id 
+       id:req.params.category_id 
       }
     }
   ).then(dbCategoryData => {
