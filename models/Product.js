@@ -30,7 +30,8 @@ Product.init(
     },
     stock:{
       type: DataTypes.STRING,
-      allowNull:false
+      allowNull:false,
+      toDefaultValue:10
     },
     category_id: {
       type: DataTypes.INTEGER,
@@ -38,6 +39,13 @@ Product.init(
       references: {
         model:'category',
         key: "id"
+      }
+    },
+    tag_id:{ 
+      type: DataTypes.INTEGER,
+      references: {
+        model:'tag',
+        key:'id'
       }
     }
   },
